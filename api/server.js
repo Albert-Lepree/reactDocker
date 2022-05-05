@@ -46,10 +46,10 @@ http.createServer(function (req, res) {
   sql = `INSERT INTO clients (name, location, apt_date, apt_time ) VALUES ('${qdata.name}', '${qdata.location}', '${qdata.date}', '${qdata.time}', '${qdata.notes}');`
   ex.execute(sql).then(result => {
     if (result) {
-      console.log('Insert Success');
+      res.write('insert Success'); //write a response to the client
     }
   })
 
-  res.write('FINN IS SO COOL :)'); //write a response to the client
+  
   res.end(); //end the response
 }).listen(8080); //the server object listens on port 8080
