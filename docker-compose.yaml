@@ -1,15 +1,14 @@
-version: '3.7'
+version: "3.7"
 
 services:
-
   web:
     container_name: web-app
     build:
       context: ./
       dockerfile: Dockerfile.web
     volumes:
-      - '.:/app'
-      - '/app/node_modules'
+      - ".:/app"
+      - "/app/node_modules"
     ports:
       - 3000:3000
     environment:
@@ -21,7 +20,7 @@ services:
     depends_on:
       - db
     container_name: web-api
-    build: 
+    build:
       context: ./api
       dockerfile: Dockerfile.api
     ports:
@@ -29,15 +28,25 @@ services:
     environment:
       - CHOKIDAR_USEPOLLING=true
 
+  # db:
+  #   container_name: web-db
+  #   image: postgres:latest
+  #   ports:
+  #     - 5432:5432
+  #   restart: always
+  #   environment:
+  #     POSTGRES_PASSWORD: K00lc@ts1
+  #     POSTGRES_USER: main
+  #     POSTGRES_DB: funcPrototype
+  #   volumes:
+  #    - /var/lib/postgresql/data
+
   db:
-    container_name: web-db
-    image: postgres:latest
-    ports:
-      - 5432:5432
+    container_name: mongo-db
+    image: mongo:latest
     restart: always
+    ports:
+      - 27017:27017
     environment:
-      POSTGRES_PASSWORD: K00lc@ts1
-      POSTGRES_USER: main
-      POSTGRES_DB: funcPrototype
-    volumes:
-     - /var/lib/postgresql/data
+      MONGO_INITDB_ROOT_USERNAME: main
+      MONGO_INITDB_ROOT_PASSWORD: K00lcats1

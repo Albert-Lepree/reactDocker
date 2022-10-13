@@ -1,0 +1,10 @@
+.tabList {
+    margin: auto;
+    width: auto;
+    padding: 10px;
+}
+
+.tabList div:hover,
+.tabList div:active {
+    color: antiquewhite;
+}

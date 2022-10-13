@@ -24,3 +24,11 @@ remove image
 web-app: 3000:3000
 
 web-api: 8080:8080
+
+
+# Mongo DB
+### `docker exec -it mongo-db bash`
+* then mongosh --username [username] --password [password]
+* show dbs
+* use [db]
+
