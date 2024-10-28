@@ -1,6 +1,6 @@
 # Getting Started 
 
-### `Docker compose up`
+### `Docker compose up --build`
 
 
 ## Available Scripts
@@ -24,3 +24,5 @@ remove image
 web-app: 3000:3000
 
 web-api: 8080:8080
+
+web-db: 5432:5432
